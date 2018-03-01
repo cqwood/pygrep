@@ -4,6 +4,7 @@ import os
 import sys
 import subprocess
 
+
 #Pseudocode
 def getGreps(ip):
         y = []
@@ -21,8 +22,12 @@ def getGreps(ip):
 
 #execute greps
 def execGreps(greps):
-        for command in greps:
-                grepout = grepout + command + "\n" + subprocess.check_output(command.split(" ")) + '\n'
+    grepout = output
+    for command in greps:
+                try:
+                        grepout = grepout + command + "\n" + subprocess.check_output(command, shell=True) + '\n'
+                except:
+                        grepout = grepout + command + "\n"
         return grepout
 
 #login to public edge and perform sh ip route and sh ip bgp
@@ -31,17 +36,18 @@ def ipRoute(ip):
        os.system('echo "show ip route %s" >> commands;echo "show ip bgp %s/22 longer-prefixes" >>commands' % (ip[0],ip[0]))
 
 def __init__():
+    greps = ''
         for arg in sys.argv:
                 if arg == sys.argv[0]:
                         print " "
                 else:
-                        greps = execGreps(getGreps(str(arg)))
+                        greps = execGreps(getGreps(str(arg)), greps)
                         ipRoute(str(arg))
         #display output
         print greps
         os.system('echo exit >> commands;cat commands | ssh $USER@jfk-edge-19 >> output')
         os.system('cat output')
         #cleanup
-        os.system('rm grepout; rm commands; rm output')
+        os.system('rm commands; rm output')
 
 __init__()
