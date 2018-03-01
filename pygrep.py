@@ -1,4 +1,4 @@
-
+#!/usr/bin/python
 
 import os
 import sys
@@ -22,7 +22,7 @@ def getGreps(ip):
 #execute greps
 def execGreps(greps):
         for command in greps:
-                grepout = command + "\n" + os.system(command) + '\n'
+                grepout = grepout + command + "\n" + subprocess.check_output(command.split(" ")) + '\n'
         return grepout
 
 #login to public edge and perform sh ip route and sh ip bgp
