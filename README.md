@@ -3,10 +3,9 @@
 To install:
 =======
 
-1. git clone https://github.com/cqwood/pygrep.git
-2. run the following:
-
+##run the following:
 ```
+git clone https://github.com/cqwood/pygrep.git
 cd pygrep
 chmod +x pygrep.py
 mv pygrep.py ~/pygrep.py
