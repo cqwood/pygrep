@@ -43,7 +43,7 @@ def __init__():
             greps = execGreps(getGreps(str(arg)), greps)
             ipRoute(str(arg))
         #display output
-        print greps
+    print greps
     os.system('echo exit >> commands;cat commands | ssh $USER@jfk-edge-19 >> output')
     os.system('cat output')
     #cleanup
