@@ -3,7 +3,8 @@
 To install:
 =======
 
-##run the following:
+run the following:
+
 ```
 git clone https://github.com/cqwood/pygrep.git
 cd pygrep
