@@ -20,7 +20,7 @@ def getGreps(ip):
     return y # y is list of grep commands to run per subnet
 
 #execute greps
-def execGreps(greps):
+def execGreps(greps, output):
     grepout = output
     for command in greps:
         try:
@@ -44,9 +44,9 @@ def __init__():
             ipRoute(str(arg))
         #display output
         print greps
-        os.system('echo exit >> commands;cat commands | ssh $USER@jfk-edge-19 >> output')
-        os.system('cat output')
-        #cleanup
-        os.system('rm commands; rm output')
+    os.system('echo exit >> commands;cat commands | ssh $USER@jfk-edge-19 >> output')
+    os.system('cat output')
+    #cleanup
+    os.system('rm commands; rm output')
 
 __init__()
