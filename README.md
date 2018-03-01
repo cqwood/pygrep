@@ -7,9 +7,8 @@ run the following:
 
 ```
 git clone https://github.com/cqwood/pygrep.git
-cd pygrep
-chmod +x pygrep.py
-mv pygrep.py ~/pygrep.py
+chmod +x pygrep/pygrep.py
+mv pygrep/pygrep.py ~/pygrep.py
 ```
 
 Usage:
