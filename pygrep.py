@@ -35,7 +35,7 @@ def execGreps(greps, output):
         try:
             grepout = grepout + command + "\n" + bcolors.WARNING + subprocess.check_output(command, shell=True) + bcolors.ENDC
         except:
-            grepout = grepout + command
+            grepout = grepout + command + "\n"
     return grepout
 
 #login to public edge and perform sh ip route and sh ip bgp
