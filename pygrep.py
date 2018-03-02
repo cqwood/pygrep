@@ -33,7 +33,7 @@ def execGreps(greps, output):
     grepout = output
     for command in greps:
         try:
-            grepout = grepout + "\n" + bcolors.WARNING + subprocess.check_output(command, shell=True) + bcolors.ENDC + '\n'
+            grepout = grepout + "\n" + command + "\n" + bcolors.WARNING + subprocess.check_output(command, shell=True) + bcolors.ENDC + '\n'
         except:
             grepout = grepout + command + "\n"
     return grepout
