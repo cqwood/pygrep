@@ -4,6 +4,15 @@ import os
 import sys
 import subprocess
 
+class bcolors:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
 
 #Pseudocode
 def getGreps(ip):
@@ -24,7 +33,7 @@ def execGreps(greps, output):
     grepout = output
     for command in greps:
         try:
-            grepout = grepout + command + "\n" + subprocess.check_output(command, shell=True) + '\n'
+            grepout = grepout + "\n" + bcolors.WARNING + subprocess.check_output(command, shell=True) + bcolors.ENDC + '\n'
         except:
             grepout = grepout + command + "\n"
     return grepout
